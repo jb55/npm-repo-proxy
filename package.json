@@ -1,0 +1,27 @@
+{
+  "name": "npm-repo-proxy",
+  "description": "npm-repo proxy",
+  "version": "0.0.0",
+  "repository": {
+    "url": "git://github.com/jb55/npm-repo-proxy.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "./bin/npm-repo-proxy",
+    "test": "mocha -r should -R spec"
+  },
+  "dependencies": {
+    "npm": "^1.4.6",
+    "npm-registry-client": "^0.4.7",
+    "github-url-from-git": "^1.1.1",
+    "github-url-from-username-repo": "0.0.2",
+    "debug": "^0.8.0",
+    "minimist": "0.0.8",
+    "mkdirp": "^0.3.5"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*",
+    "supertest": "^0.10.0"
+  }
+}

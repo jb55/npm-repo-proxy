@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+
+var createServer = require('..');
+var argv = require('minimist')(process.argv.slice(2));
+var mkdirp = require('mkdirp').sync;
+
+if (argv.help)
+  return usage();
+
+var registry = argv.r || argv.registry || "https://registry.npmjs.org";
+var cache = argv.c || argv.cache || "/tmp/npm-repo-proxy-cache";
+var port = argv.p || argv.port || process.env.PORT || 9676;
+
+mkdirp(cache);
+
+var server = createServer({
+  registry: registry,
+  cache: cache
+});
+
+console.log('npm-repo-proxy listening on ' + port);
+server.listen(port);
+
+function usage() {
+  console.log("usage: npm-repo-proxy [options]");
+  console.log("");
+  console.log("options");
+  console.log("");
+  console.log("--help      show this");
+  console.log("--port      set port (default 9676)");
+  console.log("--cache     set cache dir (default /tmp/npm-repo-proxy-cache)");
+  console.log("--registry  set npm registry (default https://registry.npmjs.org)");
+}
