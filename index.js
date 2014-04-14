@@ -35,6 +35,9 @@ function create(registry){
         return;
       }
 
+      if (err) return package();
+      if (!d) return package();
+
       var r = d.repository;
       if (!r) return package();
 

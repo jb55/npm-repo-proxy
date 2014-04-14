@@ -25,4 +25,10 @@ describe('server', function(){
     .get('/')
     .expect(404, done);
   });
+
+  it('404 on empty', function(done){
+    request(server)
+    .get('')
+    .expect(404, done);
+  });
 });
