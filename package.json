@@ -1,11 +1,14 @@
 {
   "name": "npm-repo-proxy",
   "description": "npm-repo proxy",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": {
     "url": "git://github.com/jb55/npm-repo-proxy.git"
   },
   "main": "index.js",
+  "bin": {
+    "npm-repo-proxy": "./bin/npm-repo-proxy"
+  },
   "scripts": {
     "start": "./bin/npm-repo-proxy",
     "test": "mocha -r should -R spec"
