@@ -17,7 +17,8 @@ function create(registry){
 
     debug('req.url %s', req.url);
     var loc = req.url || "";
-    var repo = loc.match(/\/(.+)/)[1];
+    var match = loc.match(/\/(.+)/);
+    var repo = match? match[1] : null;
     if (!repo) {
       res.writeHead(404);
       res.end();

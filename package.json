@@ -1,7 +1,7 @@
 {
   "name": "npm-repo-proxy",
   "description": "npm-repo proxy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "url": "git://github.com/jb55/npm-repo-proxy.git"
   },

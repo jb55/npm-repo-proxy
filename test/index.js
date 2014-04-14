@@ -19,4 +19,10 @@ describe('server', function(){
     .expect('Location', 'https://www.npmjs.org/package/dateish')
     .expect(302, done);
   });
+
+  it('404s on empty', function(done){
+    request(server)
+    .get('/')
+    .expect(404, done);
+  });
 });
