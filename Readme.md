@@ -3,6 +3,8 @@
 
   HTTP server that serves npm-repo redirects
 
+  [![build status](https://secure.travis-ci.org/jb55/npm-repo-proxy.png)](http://travis-ci.org/jb55/npm-repo-proxy)
+
 ## Installation
 
   Install with npm
