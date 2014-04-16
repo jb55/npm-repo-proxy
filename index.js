@@ -6,7 +6,6 @@ var debug = require('debug')('npm-repo-proxy');
 
 var github         = require('github-url-from-git');
 var RegClient      = require('npm-registry-client');
-var githubUserRepo = require("github-url-from-username-repo");
 
 function create(registry){
   var server = http.createServer(function(req, res){
@@ -35,16 +34,13 @@ function create(registry){
         return;
       }
 
-      if (err) return package();
-      if (!d) return package();
+      if (!d || !d.repository) return package();
 
-      var r = d.repository;
-      if (!r) return package();
+      var url = d.repository.url || d.repository;
+      url = githubUserRepo(url) || url;
+      url = github(url) || url;
 
-      if (githubUserRepo(r.url))
-        r.url = githubUserRepo(r.url);
-
-      var url = github(r.url);
+      if (!url) return package();
 
       res.writeHead(302, { location: url });
       res.end();
@@ -55,6 +51,14 @@ function create(registry){
   return server;
 }
 
+
+function githubUserRepo(r) {
+  if (!r) return null;
+  if (/^[\w-]+\/[\w\.-]+$/.test(r))
+    return "git://github.com/" + r;
+  else
+    return null;
+}
 
 module.exports = function(config){
   var registry = new RegClient(config);
