@@ -31,4 +31,11 @@ describe('server', function(){
     .get('')
     .expect(404, done);
   });
+
+  it('github repos work', function(done){
+    request(server)
+    .get('/component-downloader')
+    .expect('Location', "https://github.com/component/downloader.js")
+    .expect(302, done);
+  });
 });
