@@ -6,6 +6,7 @@ var debug = require('debug')('npm-repo-proxy');
 
 var github         = require('github-url-from-git');
 var RegClient      = require('npm-registry-client');
+var githubUserRepo = require('github-url-from-username-repo');
 
 function create(registry){
   var server = http.createServer(function(req, res){
@@ -49,15 +50,6 @@ function create(registry){
   });
 
   return server;
-}
-
-
-function githubUserRepo(r) {
-  if (!r) return null;
-  if (/^[\w-]+\/[\w\.-]+$/.test(r))
-    return "git://github.com/" + r;
-  else
-    return null;
 }
 
 module.exports = function(config){
