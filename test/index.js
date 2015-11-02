@@ -32,6 +32,12 @@ describe('server', function(){
     .expect(404, done);
   });
 
+  it('302 on jio', function(done){
+    request(server)
+    .get('/jio')
+    .expect(302, done);
+  });
+
   it('github repos work', function(done){
     request(server)
     .get('/component-downloader')

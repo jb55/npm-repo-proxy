@@ -40,6 +40,7 @@ function create(registry){
       var url = d.repository.url || d.repository;
       url = githubUserRepo(url) || url;
       url = github(url) || url;
+      url = typeof url == "object" ? ("url" in url ? url.url : "") : url;
       url = url.replace(/^git\+/, "")
 
       if (!url) return package();
