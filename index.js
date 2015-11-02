@@ -22,14 +22,14 @@ function create(registry){
     if (!repo) {
       res.writeHead(404);
       res.end();
-      return; 
+      return;
     }
 
     registry.get(repo, 'latest', 3600, function (err, d){
       // do search if no repo is found
       function package(){
-        res.writeHead(302, { 
-          location: "https://www.npmjs.org/package/" + repo 
+        res.writeHead(302, {
+          location: "https://www.npmjs.org/package/" + repo
         });
         res.end();
         return;
