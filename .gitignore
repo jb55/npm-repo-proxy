@@ -1,4 +1,5 @@
 node_modules
+result
 package-lock.json
 /test/cache
 
