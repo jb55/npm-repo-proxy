@@ -14,7 +14,7 @@
     "test": "mocha -r should -R spec"
   },
   "dependencies": {
-    "npm-registry-client": "^0.4.7",
+    "npm-registry-client": "^1.0.0",
     "github-url-from-git": "^1.1.1",
     "github-url-from-username-repo": "*",
     "debug": "^0.8.0",
