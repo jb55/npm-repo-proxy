@@ -6,6 +6,11 @@ var server = require('..')({
 });
 
 describe('server', function(){
+
+  after(function(){
+    server.close()
+  })
+
   it('gets the right url', function(done){
     request(server)
     .get('/koa')
