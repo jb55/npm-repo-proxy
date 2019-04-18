@@ -960,7 +960,7 @@ let
       description = "npm-repo proxy";
     };
     production = true;
-    bypassCache = false;
+    bypassCache = true;
   };
 in
 {
